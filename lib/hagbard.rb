@@ -126,9 +126,7 @@ end
         elsif args.has_key?(:name)
           trigram = Hagbard::TRIGRAMS.find { |t| t[:name] == args[:name] }
         elsif args.has_key?(:bin)
-          pp args[:bin]
           trigram = Hagbard::TRIGRAMS.find { |t| t[:bin] == args[:bin] }
-          pp trigram
         end
  
         if trigram.nil?
