@@ -79,7 +79,7 @@ end
     end
  
     def to_haml
-      %Q{%img{:src => "/images/#{value}.png"}}
+      %Q{%img{:src => "/images/#{value}.png", :alt => "#{to_s}"}}
     end
    
     def yin?
