@@ -1,0 +1,13 @@
+%h1 
+  Hi! How's it going? Here's your reading:
+
+%p
+  You asked:
+  = h @question
+
+- @hexes.each do |h|
+  .hex 
+    %p.images
+      = Haml::Engine.new(h.to_haml).render
+    .detail
+      = Haml::Engine.new(IO.read("views/hex/#{h.number}.haml")).render
