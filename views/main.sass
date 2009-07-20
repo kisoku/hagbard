@@ -1,6 +1,8 @@
+@import rounded.sass
+
 body
   :background #8b8b8b none repeat scroll 0 0
-  :color #FFFFDC
+  :color #000000
   :font-family "Trebuchet MS",Arial,Helvetica,sans-serif
   :font-size 14px
   :font-size-adjust none
@@ -28,11 +30,6 @@ img
   :margin 0 auto
 
 
-#content
-  :float left
-  :margin 0 auto 10px
-  :padding 20px 0 0
-  :width 85%
 
 #logo
   img
@@ -51,6 +48,7 @@ img
     :text-transform lowercase
 
   p
+    :color #FFFFDC
     :font-family Tahoma,Arial,Helvetica,sans-serif
     :font-weight bold
     :margin -103px 0 0 2px
@@ -61,6 +59,12 @@ img
     :font-style italic
     :text-decoration none
     :color #000000
+
+#content
+  :float left
+  :margin 0 auto 10px
+  :padding 20px 0 0
+  :width 85%
 
 .hex
   :margin-top 20px
@@ -82,16 +86,42 @@ img
     :width 64px
     :height 8px
 
+.index
+  :background #e5e5e5
+  :border 1px solid #cacaca
+  :padding 4px
+  +rounded("5px")
+  & > div
+    height: 60px
+    margin-bottom: 15px
+    width: 100%
+    &:last-child
+      margin-bottom: 0
+  h1
+    :color #8b8b8b
+
 .browser
   :display table
-  :background-color #FFFFDC
+  :background #e5e5e5
+  :border 1px solid #cacaca
   :padding 4px
+  +rounded("5px")
+  & > div
+    height: 60px
+    margin-bottom: 15px
+    width: 100%
+    &:last-child
+      margin-bottom: 0
   .row
     :display table-row
   .col
     :display table-cell
     :padding 4px
-  
+    :border 2px solid #e5e5e5
+    +rounded("4px")
+    &:hover
+      :border 2px solid #8b8b8b
+      :background #cacaca
 
 .title h2
   :padding 10px
