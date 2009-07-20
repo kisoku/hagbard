@@ -1,2 +1,8 @@
-%h1
-  Hi! I guess you want to browse through all the hexagrams
+.browser
+  - @chessboard.each do |x| 
+    .row
+      - x.each do |y|
+        .col
+          .images_small
+            %a{ :href => "/hex/#{y}" }
+              = Haml::Engine.new(Hagbard::HexaGram.new(:number => "#{y}").to_haml).render

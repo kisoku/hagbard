@@ -24,6 +24,16 @@ get '/main.css' do
 end
 
 get '/hex' do
+  @chessboard = [
+    (1..8).to_a,
+    (9..16).to_a,
+    (17..24).to_a,
+    (25..32).to_a,
+    (33..40).to_a,
+    (41..48).to_a,
+    (49..56).to_a,
+    (57..64).to_a
+  ]
   haml :browse
 end
 
