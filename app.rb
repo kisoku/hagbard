@@ -61,7 +61,8 @@ end
 
 get '/hex/:name' do |n|
   if n.to_i >= 1 and n.to_i <= 64
-    haml :"hex/#{n}"
+    @hex = Hagbard::HexaGram.new(:number => "#{n}")
+    haml :hex
   else
     not_found "Hexagram #{n} does not exist, pick one from 1 to 64"
   end

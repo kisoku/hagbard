@@ -1,0 +1,19 @@
+.synopsis
+  .hex
+    .hex_image
+      = Haml::Engine.new(@hex.to_haml).render
+    .hex_detail
+      .trigram
+        .trigram_image
+          = Haml::Engine.new(@hex.inner.to_haml).render
+        .trigram_name
+          Above:
+          = "#{@hex.inner.name}"
+      .trigram
+        .trigram_image
+          = Haml::Engine.new(@hex.outer.to_haml).render
+        .trigram_name
+          Below:
+          = "#{@hex.outer.name}"
+
+= Haml::Engine.new(IO.read("views/hex/#{@hex.number}.haml")).render  
