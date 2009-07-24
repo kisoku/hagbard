@@ -1,0 +1,63 @@
+.browser
+  :float left
+  :display table
+  :background #e5e5e5
+  :border 1px solid #cacaca
+  :width 100%
+  :padding 2px
+  +rounded("5px")
+  & > div
+    &:last-child
+      margin-bottom: 0
+  .browser_row
+    :display table-row
+  .browser_col
+    :display table-cell
+
+.hex
+  :margin 5px 4px 0px 5px
+  :display table
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+  &:hover
+    :border 2px solid #c8c8c8
+    :background #aaaaaa
+
+.hex_small
+  :margin 3px 2px 0px 3px
+  :display table
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+  &:hover
+    :border 2px solid #bababa
+    :background #aaaaaa
+
+.hex_image
+  :width 128px
+  :margin 10px 10px 7px 10px
+  img
+    :width 128px
+    :height 16px
+
+.hex_image_small
+  :margin 4px 4px 4px 4px
+  :width 56px
+  :line-height 0.75
+  img
+    :width 56px
+    :height 7px
+
+.preview
+  :overflow auto
+  :display table
+  :background #e5e5e5
+  :border 1px solid #cacaca
+  :width 100%
+  :height 100%
+  :padding 2px
+  +rounded("5px")
+  h2
+    :text-decoration underline
+    :font-weight bold

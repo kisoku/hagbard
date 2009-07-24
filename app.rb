@@ -4,10 +4,18 @@ $LOAD_PATH.unshift("#{dir}/")
 $LOAD_PATH.unshift("#{dir}/lib")
 
 require 'rubygems'
+require 'compass'
 require 'sinatra'
 require 'haml'
-require 'sass'
 require 'hagbard'
+
+configure do 
+  Compass.configuration do |config|
+    config.project_path = File.dirname(__FILE__)
+    config.sass_dir = File.join(Sinatra::Application.views, 'stylesheets')
+    config.output_style = :compact 
+  end
+end
 
 helpers do
   include Rack::Utils
@@ -16,6 +24,11 @@ end
 
 get '/' do
   haml :index
+end
+
+get '/stylesheets/:name.css' do
+  content_type 'text/css', :charset => 'utf-8'
+  sass :"stylesheets/#{params[:name]}", :sass => Compass.sass_engine_options
 end
 
 get '/main.css' do

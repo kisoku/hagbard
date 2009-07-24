@@ -1,21 +1,38 @@
 !!! Strict
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
   %head
-    %link{ :rel => "stylesheet", :type => "text/css", :href => "/main.css"}
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/screen.css"}
     %link{ :rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
+
     %title hagbard
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }/
   %body
-    #container
-      #header
-        #logo
-          %h1
-            %a{ :href => "/" } 
-              %img{ :src => "/images/chao.png", :alt => "Sacred Chao" }
-              \:hagbard
-          %p 
-            a modern I-Ching browser by 
-            %a{ :href => "http://github.com/kisoku"}
-              kisoku
-      #content
+    .container
+      .header
+        .span-12
+          .logo
+            %h1
+              %a{ :href => "/" } 
+                %img{ :src => "/images/chao.png", :alt => "Sacred Chao" }
+                \:hagbard
+            %p
+              a modern I-Ching browser by 
+              %a{ :href => "http://github.com/kisoku"}
+                kisoku
+        .span-12.last
+          .nav
+            %ul
+              %li
+                %a{ :href => "/" }
+                  ask
+              |
+              %li
+                %a{ :href => "/browse" }
+                  browse
+              |
+              %li
+                %a{ :href => "/login" }
+                  login
+      %hr.clear
+      .content
         ~ yield
