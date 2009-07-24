@@ -36,7 +36,7 @@ get '/main.css' do
   sass :main
 end
 
-get '/hex' do
+get '/browse' do
   @chessboard = [
     (1..8).to_a,
     (9..16).to_a,
