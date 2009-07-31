@@ -1,8 +1,13 @@
-.browser
-  - @chessboard.each do |x| 
-    .row
-      - x.each do |y|
-        .col
-          .images_small
-            %a{ :href => "/hex/#{y}" }
-              = Haml::Engine.new(Hagbard::HexaGram.new(:number => "#{y}").to_haml).render
+.span-17
+  .browser
+    - @chessboard.each do |x| 
+      .browser_row
+        - x.each do |y|
+          .browser_col
+            .hex_small
+              .hex_image_small
+                %a{ :href => "/hex/#{y}" }
+                  = Haml::Engine.new(Hagbard::HexaGram.new(:number => "#{y}").to_haml).render
+.span-6.last
+  .preview
+.clear
