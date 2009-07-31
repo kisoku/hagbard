@@ -1,19 +1,34 @@
-.synopsis
-  .hex
-    .hex_image
-      = Haml::Engine.new(@hex.to_haml).render
-    .hex_detail
-      .trigram
-        .trigram_image
-          = Haml::Engine.new(@hex.inner.to_haml).render
-        .trigram_name
-          Above:
-          = "#{@hex.inner.name}"
-      .trigram
-        .trigram_image
-          = Haml::Engine.new(@hex.outer.to_haml).render
-        .trigram_name
-          Below:
-          = "#{@hex.outer.name}"
-
-= Haml::Engine.new(IO.read("views/hex/#{@hex.number}.haml")).render  
+.overview
+  .synopsis
+    .span-10
+      .span-10.last
+        %h3
+          = "#{@hex.number}. #{@hex.name}"
+      .span-4
+        .hex_image
+          = Haml::Engine.new(@hex.to_haml).render
+      .span-6.last
+        .hex_detail
+          .trigram
+            .trigram_image
+              = Haml::Engine.new(@hex.inner.to_haml).render
+            .trigram_name
+              %p
+                %b
+                  Above:
+                  %br
+                  = "#{@hex.inner.name}"
+          .trigram
+            .trigram_image
+              = Haml::Engine.new(@hex.outer.to_haml).render
+            .trigram_name
+              %p
+                %b
+                  Below: 
+                  %br
+                  = "#{@hex.outer.name}"
+          %a.show_detail{ :href => "#lines" } 
+            show details
+  .clear
+.detail 
+  = Haml::Engine.new(IO.read("views/hex/#{@hex.number}.haml")).render  

@@ -1,11 +1,6 @@
 .browser
-  :float left
   :display table
-  :background #e5e5e5
-  :border 1px solid #cacaca
-  :width 100%
-  :padding 2px
-  +rounded("5px")
+  :padding 1px
   & > div
     &:last-child
       margin-bottom: 0
@@ -49,15 +44,68 @@
     :width 56px
     :height 7px
 
+.hex_detail
+  :margin 10px 
+
 .preview
-  :overflow auto
   :display table
-  :background #e5e5e5
-  :border 1px solid #cacaca
   :width 100%
   :height 100%
   :padding 2px
-  +rounded("5px")
   h2
     :text-decoration underline
     :font-weight bold
+
+.trigram
+  :display table-row
+  :border 2px solid #c8c8c8
+.trigram_name
+  :display table-cell
+.trigram_image
+  :display table-cell
+  :width 64px
+  :line-height 1
+  img
+    :width 64px
+    :height 8px
+
+.synopsis
+  ul, li
+    :display inline
+    :text-align center
+  a
+    :text-transform lowercase
+    :font-weight bold
+    :font-style italic
+    :text-decoration none
+    :color #000000
+  
+.detail 
+  h3
+    :font-weight bold
+
+.section_synopsis
+  :margin-bottom 4px
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+.section_judgement
+  :margin-bottom 4px
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+.section_image
+  :margin-bottom 4px
+  :display none
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+.section_lines
+  :margin-bottom 4px
+  :display none
+  :border 2px solid #cccccc
+  :background #e5e5e5
+  +rounded("4px")
+
+.detail
+  :margin 4px

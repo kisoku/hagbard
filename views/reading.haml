@@ -1,13 +1,87 @@
-%h1 
-  Hi! How's it going? Here's your reading:
-
-%p
-  You asked:
-  = h @question
-
-- @hexes.each do |h|
-  .hex 
-    %p.images
-      = Haml::Engine.new(h.to_haml).render
-    .detail
-      = Haml::Engine.new(IO.read("views/hex/#{h.number}.haml")).render
+.reading
+  .success
+    .span-6
+      %h3
+        You asked:
+    .span-17.last
+      %p
+        "
+        = h @question
+        "
+    .clear
+  .overview
+    .synopsis
+      .span-11
+        .span-11
+          %h3
+            The present is embodied in: 
+        .span-11
+          %h3
+            = "#{@hexes[0].number}. #{@hexes[0].name}"
+        .span-4
+          %a.present_toggle
+            .hex_image
+              = Haml::Engine.new(@hexes[0].to_haml).render 
+        .span-6
+          .hex_detail
+            .trigram
+              .trigram_image
+                = Haml::Engine.new(@hexes[0].inner.to_haml).render
+              .trigram_name
+                %p
+                  %b
+                    Above:
+                    %br
+                    = "#{@hexes[0].inner.name}"
+            .trigram
+              .trigram_image
+                = Haml::Engine.new(@hexes[0].outer.to_haml).render
+              .trigram_name
+                %p
+                  %b
+                    Below: 
+                    %br
+                    = "#{@hexes[0].outer.name}"
+            %a.show_detail{ :href => "#lines" } 
+              show details
+      .span-12.last
+        .span-12
+          %h3
+            The future is embodied in:
+        .span-12
+          %h3
+            = "#{@hexes[1].number}. #{@hexes[1].name}"
+        .span-4
+          %a.potential_toggle
+            .hex_image
+              = Haml::Engine.new(@hexes[1].to_haml).render
+        .span-6
+          .hex_detail
+            .trigram
+              .trigram_image
+                = Haml::Engine.new(@hexes[1].inner.to_haml).render
+              .trigram_name
+                %p
+                  %b
+                    Above:
+                    %br
+                    = "#{@hexes[1].inner.name}"
+            .trigram
+              .trigram_image
+                = Haml::Engine.new(@hexes[1].outer.to_haml).render
+              .trigram_name
+                %p
+                  %b
+                    Below: 
+                    %br
+                    = "#{@hexes[1].outer.name}"
+            %a.show_detail{ :href => "#lines" } 
+              show details
+      .clear
+  .detail
+    .present_slide
+      %a{ :name => "#{@hexes[0].number}"}
+      = Haml::Engine.new(IO.read("views/hex/#{@hexes[0].number}.haml")).render
+    .potential_slide
+      %a{ :name => "#{@hexes[1].number}"}
+      = Haml::Engine.new(IO.read("views/hex/#{@hexes[1].number}.haml")).render
